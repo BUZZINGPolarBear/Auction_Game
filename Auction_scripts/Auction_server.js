@@ -1,16 +1,18 @@
-"use strict";
-const socketIo = require("socket.io").Server;
-const http = require("http");
-const express = require("express");
-
-const app = express();
-const io = socketIo();
-let round = 1;//n회차를 나타내는 변수임.
-
-app.get("/", (req, res) => {
-    res.send("Welcome to AuctionGame");
+const app = require('express')();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/Auction_Game/main.html');
 });
-
-io.on("connection", function(socket) {
-    console.log("socket client connected");
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+  socket.on('disconnect', () => {
+  console.log('user disconnected');
+  });
+});
+http.listen(3000, () => {
+  console.log('Connected at 3000');
 });

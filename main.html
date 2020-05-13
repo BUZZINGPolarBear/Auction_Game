@@ -7,7 +7,6 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>    
-    
     <form>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">경매사</label>
@@ -25,9 +24,32 @@
             <label for="exampleFormControlTextarea1">3번 플레이어</label>
             <textarea class="form-control rounded-0" id="exampleFormControlTextarea4" rows="5"></textarea>
         </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">채팅</label>
+        <form action="">
+            <textarea class="form-control rounded-0" id="chatting" rows="5" style= width:500px;></textarea>
+        </form>
+        <input id="m" autocomplete="off" style =  width:500px;><button>전송</button>
+              </div>
+        </div>
     </form>
+    <script>
+        $(() => {
+          const socket = io();
+          $('form').submit(() => {
+            socket.emit('chat message', $('#m').val());
+            $('#m').val('');
+            return false;
+          });
+          socket.on('chat message', (msg) => {
+            $('#messages').append($('<li>').text(msg));
+          });
+        });
+      </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </body>
 </html>
