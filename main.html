@@ -10,46 +10,44 @@
     <form>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">경매사</label>
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="5" style= width:500px;></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">1번 플레이어</label>
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5"  style= width:500px;></textarea>
+            <input id="m" autocomplete="off" style =  width:500px;>
+            <button onclick = "namespace(1)">전송</button>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">2번 플레이어</label>
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea3" rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea3" rows="5"  style= width:500px;></textarea>
+            <input id="m" autocomplete="off" style =  width:500px;>
+            <button onclick = "namespace(2)">전송</button>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">3번 플레이어</label>
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea4" rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea4" rows="5"  style= width:500px;></textarea>
+            <input id="m" autocomplete="off" style =  width:500px;>
+            <button onclick = "namespace(3)">전송</button>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">채팅</label>
-        <form action="">
-            <textarea class="form-control rounded-0" id="chatting" rows="5" style= width:500px;></textarea>
-        </form>
-        <input id="m" autocomplete="off" style =  width:500px;><button>전송</button>
+            <textarea class="form-control rounded-0" id="chatting_log" rows="5"  style= width:500px;></textarea>
               </div>
         </div>
     </form>
     <script>
-        $(() => {
-          const socket = io();
-          $('form').submit(() => {
-            socket.emit('chat message', $('#m').val());
-            $('#m').val('');
-            return false;
-          });
-          socket.on('chat message', (msg) => {
-            $('#messages').append($('<li>').text(msg));
-          });
+        function namespace(nsp) {
+        const namespace = io('/namespace' + nsp);
+          // news라는 이벤트를 받을 시 콘솔에 data.hello를 출력
+          namespace.on('news', (data) => {
+          console.log(data.hello);
         });
+      }
       </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </body>
 </html>
