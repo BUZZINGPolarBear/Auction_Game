@@ -185,7 +185,7 @@
     <table class="plyer_1_table">
       <tbody>
         <tr>
-          <td height="250px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="250px" height="230px"></div></td>
+          <td height="180px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>1번 플레이어</td>
@@ -196,7 +196,7 @@
     <table class="plyer_2_table">
       <tbody>
         <tr>
-          <td height="250px"><div style="height:100xp"><img src="https://i.ibb.co/YdSRHrH/plyer-2.png" witdth="250px" height="230px"></div></td>
+          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/YdSRHrH/plyer-2.png" witdth="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>2번 플레이어</td>
@@ -206,7 +206,7 @@
     <table class="plyer_3_table">
       <tbody>
         <tr>
-          <td height="250px"><div style="height:100xp"><img src="https://i.ibb.co/3mkz1ky/plyer-3.png" width="250px" height="230px"></div></td>
+          <td height="180px"><div style="height:100xp"><img src="https://i.ibb.co/3mkz1ky/plyer-3.png" width="200px" height="180px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>3번 플레이어</td>
@@ -218,7 +218,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script>
-
+  var user_cnt=0;
   $(function(){
     // socket.io 서버에 접속한다
     var socket = io();
@@ -230,11 +230,11 @@
       userid: "",
       wallet: 1000000,
     });
-
+   
     // 서버로부터의 메시지가 수신되면
     socket.on("login", function(data) {
-      $("#chatLogs").append("<div><strong>" + data + "</strong> 님이 입장하셨습니다.</div>");
-
+      $("#chatLogs").append("<div><strong>" + data + "</strong> 님이 입장하셨습니다.</div>"+user_cnt);
+        
     });
 
     // 서버로부터의 메시지가 수신되면
