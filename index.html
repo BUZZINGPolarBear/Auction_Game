@@ -4,27 +4,31 @@
   <meta charset="utf-8">
   <title>Auction Game</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <style>
-     .header{
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            min-width: 900px;
-            margin: 0 auto;
-            height: 100%;
-            background-color: #7ebdb4;
-        }
+    .auction_game_banner{
+      font-family: "Jua";
+    }
+    .header{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 900px;
+      margin: 0 auto;
+      height: 100%;
+      background-color: #7ebdb4;
+      }
     #grid{
       display: grid;
       grid-template-columns: auto 350px;
       grid-template-rows: 1fr auto 300px 1fr;
     }
     .bingo_table td {
-      border: 1px solid #000; 
+      border: 1px solid #000;
       white-space: nowrap;
-      table-layout: fixed; 
+      table-layout: fixed;
     }
     .bingo_table{
       width: 300px;
@@ -44,6 +48,7 @@
             background-color: #EAEAEA;
     }
     .main{
+            font-family: "Nanum Gothic";
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -67,6 +72,8 @@
     }
     .plyers
     {
+            font-family: "Nanum Pen Script";
+            font-size: 25px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -126,19 +133,19 @@
       <table class = "bingo_table">
         <tbody>
         <tr>
-          <td height="99px"><div style="height:100xp"><img src="images/hi~.png" width="99px" height="99px" style="padding:0px"></div></td>
-          <td>2</td>
-          <td>3</td>
+          <td height="99px"><img src='https://ifh.cc/g/1DiA00.png' alt="player_1" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/YdSRHrH/plyer-2.png' alt="player_2" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/3mkz1ky/plyer-3.png' alt="player_3" style="max-width: 100%; height: auto;"></td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
+          <td height="99px"><img src='https://ifh.cc/g/1DiA00.png' alt="player_1" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/YdSRHrH/plyer-2.png' alt="player_2" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/3mkz1ky/plyer-3.png' alt="player_3" style="max-width: 100%; height: auto;"></td>
         </tr>
         <tr>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
+          <td height="99px"><img src='https://ifh.cc/g/1DiA00.png' alt="player_1" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/YdSRHrH/plyer-2.png' alt="player_2" style="max-width: 100%; height: auto;"></td>
+          <td height="99px"><img src='https://i.ibb.co/3mkz1ky/plyer-3.png' alt="player_3" style="max-width: 100%; height: auto;"></td>
         </tr>
         </tbody>
       </table>
@@ -162,20 +169,23 @@
     </div>
     <div class="chatbox">  <!-- class container -->
       <div id="chatLogs" style="overflow:auto; height:260px; border:1px solid #000000;"></div>
-      <form class="form-inline" style="margin-top:10px;">
+      <form id="send" class="form-inline" style="margin-top:10px;">
         <div class="form-group">
           <label for="msgForm">Message: </label>
           <input type="text" class="form-control" id="msgForm">
         </div>
         <button type="submit" class="btn btn-primary">Send</button>
-      </form>
+        </form>
+        <form id="bet" class="form-inline" style="margin-top:10px;">
+          <button type="submit" class="btn btn-primary">입찰 선택</button>
+          </form>
     </div>
   </div>
   <div class="plyers">
     <table class="plyer_1_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/1DiA00.png' border='0'></td>
+          <td height="250px"><div style="height:100xp"><img src='https://ifh.cc/g/1DiA00.png' witdth="250px" height="230px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>1번 플레이어</td>
@@ -186,19 +196,17 @@
     <table class="plyer_2_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/iuthvt.png' border='0'></td>
+          <td height="250px"><div style="height:100xp"><img src="https://i.ibb.co/YdSRHrH/plyer-2.png" witdth="250px" height="230px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>2번 플레이어</td>
         </Tr>
       </tbody>
     </table>
-
-
     <table class="plyer_3_table">
       <tbody>
         <tr>
-          <td><img src='https://ifh.cc/g/pNashg.png' border='0'></td>
+          <td height="250px"><div style="height:100xp"><img src="https://i.ibb.co/3mkz1ky/plyer-3.png" width="250px" height="230px"></div></td>
         </tr>
         <Tr>
           <td style = text-align:center;>3번 플레이어</td>
@@ -239,19 +247,32 @@
         $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
       }
       else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
+      console.log(3);
     });
 
     socket.on("start", function(data){
         $("#chatLogs").append("<div><strong>" + data + "</strong></div>");
     })
     // Send 버튼이 클릭되면
-    $("form").submit(function(e) {
+    $('#send').submit(function(e) {
       e.preventDefault();
       var $msgForm = $("#msgForm");
 
       // 서버로 메시지를 전송한다.
       socket.emit("chat", { msg: $msgForm.val() });
       $msgForm.val("");
+    });
+    $('#bet').submit(function(e) {
+      e.preventDefault();
+      var result = confirm("입찰하시겠습니까 ?");
+      if(result){
+        var msg = "yes";
+        socket.emit("bet", msg);
+      }
+      else{
+        var msg = "no";
+        socket.emit("bet", msg);
+      }
     });
 
   });
