@@ -128,19 +128,19 @@
       <table class = "bingo_table">
         <tbody>
         <tr>
-          <td id="bingo1" height="99px"><img src='https://ifh.cc/g/SMulTK.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo2" height="99px"><img src='https://ifh.cc/g/SMulTK.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo3" height="99px"><img src='https://ifh.cc/g/SMulTK.png'  style="max-width: 100%; height: auto;"></td>
+          <td id="bingo1" height="99px">1</td>
+          <td id="bingo2" height="99px">2</td>
+          <td id="bingo3" height="99px">3</td>
         </tr>
         <tr>
-          <td id="bingo4" height="99px"><img src='https://ifh.cc/g/mUSVke.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo5" height="99px"><img src='https://ifh.cc/g/mUSVke.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo6" height="99px"><img src='https://ifh.cc/g/mUSVke.png'  style="max-width: 100%; height: auto;"></td>
+          <td id="bingo4" height="99px">4</td>
+          <td id="bingo5" height="99px">5</td>
+          <td id="bingo6" height="99px">6</td>
         </tr>
         <tr>
-          <td id="bingo7" height="99px"><img src='https://ifh.cc/g/WlF0lh.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo8" height="99px"><img src='https://ifh.cc/g/WlF0lh.png'  style="max-width: 100%; height: auto;"></td>
-          <td id="bingo9" height="99px"><img src='https://ifh.cc/g/WlF0lh.png'  style="max-width: 100%; height: auto;"></td>
+          <td id="bingo7" height="99px">7</td>
+          <td id="bingo8" height="99px">8</td>
+          <td id="bingo9" height="99px">9</td>
         </tr>
         </tbody>
       </table>
@@ -264,9 +264,9 @@
     });
 
     socket.on("bingo", function(data, count){
-      if(data == "1") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/1DiA00.png" style="max-width: 100%; height: auto;"></div>');
-      else if(data == "2") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/uGsgPs.png" style="max-width: 100%; height: auto;"></div>');
-      else $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/KBHe42.png" style="max-width: 100%; height: auto;"></div>');
+      if(data == "1") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/SMulTK.png" style="max-width: 100%; height: auto;"></div>');
+      else if(data == "2") $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/mUSVke.png" style="max-width: 100%; height: auto;"></div>');
+      else $("#bingo" + count).html('<div style="height:100xp"><img src="https://ifh.cc/g/WlF0lh.png" style="max-width: 100%; height: auto;"></div>');
     });
     socket.on("bet_start", function(item_url, item){
       $("#auction_image").html('<img src="' + item_url + '" width="250px" height= "230px">');

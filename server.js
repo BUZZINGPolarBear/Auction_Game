@@ -91,6 +91,7 @@ function Is_finish(){
 // connection이 수립되면 event handler function의 인자로 socket인 들어온다
 io.on('connection', function(socket) {
 
+
   // 접속한 클라이언트의 정보가 수신되면
   socket.on('login', function(data) {
     data.userid = user_count;
@@ -115,6 +116,7 @@ io.on('connection', function(socket) {
     }
   });
   socket.on('bet', function(data){
+
     console.log('bet Message from %s: %s', socket.name, data);
     var msg = {
       from: {
