@@ -33,15 +33,15 @@ function reset_game(){
   item_count = 1;
   raise_count = 0;
   counting_price = 100000;
-  io.emit('reset', "s");
+  io.emit('reset', "s", price[item_count], counting_price);
 }
 function start_game(){
   io.emit('bet_start', item_url[item_count], item[item_count]);
-  io.emit('raise_price', price[item_count], counting_price);
   io.emit('start', item_count + "번째 경매 물품입니다.");
   io.emit('start', "경매에 응하시겠습니까?");
   current_price = price[item_count];
   counting_price = current_price / 10;
+  io.emit('raise_price', price[item_count], counting_price);
 }
 
 function next_game(){
@@ -56,12 +56,14 @@ function pre_reset(){
   start_game();
 }
 function upper_cost(){
+  raise_name_list = [];
   current_price += counting_price;
   io.emit('raise_price', current_price, counting_price);
   io.emit('start', "호가 : " + counting_price);
   io.emit('start', "경매에 응하시겠습니까?");
 }
 function upper2_cost(){
+  raise_name_list = [];
   io.emit('start', "참여자 모두 입찰하여 호가를 2배 늘립니다.");
   current_price += counting_price;
   counting_price += counting_price;

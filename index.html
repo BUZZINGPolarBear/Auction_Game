@@ -225,9 +225,9 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  
+
   <script>
-  
+
   $(function(){
     // socket.io 서버에 접속한다
     var socket = io();
@@ -239,7 +239,7 @@
       userid: 0,
       wallet: 10000000,
     });
-
+    var objDiv = document.getElementById("chatLogs");
     // 서버로부터의 메시지가 수신되면
     socket.on("login", function(data) {
       $("#chatLogs").append("<div><strong>" + data + "</strong> 님이 입장하셨습니다.</div>");
@@ -249,18 +249,22 @@
     // 서버로부터의 메시지가 수신되면
     socket.on("chat", function(data) {
       $("#chatLogs").append("<div><strong>" + data.from.name + " : </strong>" + data.msg + "</div>");
+      objDiv.scrollTop = objDiv.scrollHeight;
     });
 
     socket.on("betting", function(data){
       if(data.msg == "no"){
         $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하지 않았습니다" + "</div>");
+        objDiv.scrollTop = objDiv.scrollHeight;
       }
       else $("#chatLogs").append("<div><strong>" + data.from.name + " </strong>" + "이 입찰에 응하였습니다!" + "</div>");
+      objDiv.scrollTop = objDiv.scrollHeight;
     });
 
     socket.on("start", function(data){
         $('#make_choice').show();
         $("#chatLogs").append("<div><strong>" + data + "</strong></div>");
+        objDiv.scrollTop = objDiv.scrollHeight;
     });
 
     socket.on("bingo", function(data, count){
@@ -277,10 +281,11 @@
       $("#auction_price").html("현재가 : " + price + "  호가 : " + counting_price);
     })
     //리셋
-    socket.on("reset", function(k){
+    socket.on("reset", function(k, price, counting_price){
       for(var i = 1; i<10; i++){
         $("#bingo" + i).html(i);
       }
+      $("#auction_price").html("현재가 : " + price + "  호가 : " + counting_price);
     })
     //플레이어 이름
     socket.on("name", function(a, b, c){
@@ -307,7 +312,7 @@
     $('#bet').submit(function(e) {
       e.preventDefault();
       var result = confirm("입찰하시겠습니까 ?");
-     
+
       if(result){
         var msg = "yes";
         socket.emit("bet", msg);
